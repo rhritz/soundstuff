@@ -1,10 +1,16 @@
 (
 {
-  SinOsc.ar(400, 0, 0.1)
+  SinOsc.ar(200, 0, 0.4)
   +
-  SinOsc.ar(888, 0, 0.1)
+  SinOsc.ar(400, 0, 0.2)
   +
-  SinOsc.ar(1289, 0, 0.1)
+  SinOsc.ar(600, 0, 0.1)
+  +
+  SinOsc.ar(601, 0, 0.1)
+  +
+  SinOsc.ar(602, 0, 0.1)
+  +
+  SinOsc.ar(603, 0, 0.1)
 	/*
   +
   SinOsc.ar(1623, 0, 0.1)
@@ -17,7 +23,7 @@
   +
   SinOsc.ar(3266, 0, 0.1)
 	*/
-}.play;
+}.scope;
 )
 
 {
