@@ -1,16 +1,20 @@
 (
 {
+	SinOsc.ar(100, 0, 0.1)
+  +
   SinOsc.ar(200, 0, 0.4)
   +
   SinOsc.ar(400, 0, 0.2)
+	+
+  SinOsc.ar(599, 0, 0.05)
   +
-  SinOsc.ar(600, 0, 0.1)
+  SinOsc.ar(600, 0, 0.05)
   +
-  SinOsc.ar(601, 0, 0.1)
+  SinOsc.ar(601, 0, 0.05)
   +
-  SinOsc.ar(602, 0, 0.1)
+  SinOsc.ar(602, 0, 0.05)
   +
-  SinOsc.ar(603, 0, 0.1)
+  SinOsc.ar(603, 0, 0.05)
 	/*
   +
   SinOsc.ar(1623, 0, 0.1)
@@ -23,6 +27,30 @@
   +
   SinOsc.ar(3266, 0, 0.1)
 	*/
+}.scope;
+)
+
+{
+	Pan2.ar( SinOsc.ar(300, 0, 0.3) + SinOsc.ar(100, 0, 0.1) +  SinOsc.ar(200, 0, 0.4), SinOsc.ar( SinOsc.ar(0.1, 0, 5), 0, 1))
+}.scope;
+
+// SinOsc.ar(1, 0, 1)
+{SinOsc.ar(1, 0, 1, -1)}.scope;
+
+{Pan2.ar(WhiteNoise.ar(0.1), MouseX.kr(-1,1))}.scope;
+
+
+
+(
+{
+	SinOsc.ar(300, 0, 0.3)
+  +
+  SinOsc.ar(366, 0, 0.2)
+  +
+  SinOsc.ar(432, 0, 0.2)
+	+
+  SinOsc.ar(500, 0, 0.2)
+
 }.scope;
 )
 
