@@ -32,6 +32,8 @@
 
 {
 	Pan2.ar( SinOsc.ar(300, 0, 0.3) + SinOsc.ar(100, 0, 0.1) +  SinOsc.ar(200, 0, 0.4), SinOsc.ar( SinOsc.ar(0.1, 0, 5), 0, 1))
+	+
+	Pan2.ar( SinOsc.ar(500, 0, 0.1) + SinOsc.ar(600, 0, 0.1) +  SinOsc.ar(700, 0, 0.1), SinOsc.ar( SinOsc.ar(0.1, 1, 5), 1, 1))
 }.scope;
 
 // SinOsc.ar(1, 0, 1)
@@ -39,7 +41,26 @@
 
 {Pan2.ar(WhiteNoise.ar(0.1), MouseX.kr(-1,1))}.scope;
 
+// ---------------------------------------------------------------------------
+// modulate the frequency with an exponential ramp
+{ SinOsc.ar(XLine.kr(2000, 200), 0, 0.5) }.play;
 
+// more complex frequency modulation
+{ SinOsc.ar(SinOsc.ar(XLine.kr(1, 1000, 9), 0, 200, 800), 0, 0.25) }.play;
+
+// phase modulation (see also PMOsc)
+{ SinOsc.ar(800, SinOsc.ar(XLine.kr(1, 1000, 9), 0, 2pi), 0.25) }.play;
+
+// ---------------------------------------------------------------------------
+// Bell:
+{Mix(SinOsc.ar(500*[0.5,1,1.19,1.56,2,2.51,2.66,3.01,4.1],0,0.1))}.scope;
+// Bell spectra, different volumes for partials
+{Pan2.ar(SinOsc.ar(500*[0.5,1,1.19,1.56,2,2.51,2.66,3.01,4.1],0,0.1*[0.25,1,0.8,0.5,0.9,0.4,0.3,0.6,0.1]), 0)}.scope;
+// Here is a generalisable patch that uses the variable n to hold the number of sine tones desired for each run of the code:
+(
+var n = 10;
+{Mix(SinOsc.ar(250*(1..n),0,1/n))}.scope;
+)
 
 (
 {
