@@ -68,27 +68,29 @@ SynthDef(\prayer_bell, { |outbus, t_trig = 1, sing_switch = 0, freq = 2434, amp 
 
 
 (
+/*
 Pdef(\bell_1,
   Pmono(\prayer_bell,
     \dur, Pseq([8, 20], inf),
-    \freq, Pseq([2500, 500], inf),
+    \freq, Pseq([1500, 500], inf),
     \amp, 0.5,
     \lag, 0,
     \trig, Pseq([0.1], inf) * Pwhite(0.5, 1, inf) * Pwrand([0, 1], [1, 5].normalizeSum, inf),
     \sing_switch, Pseq((0!4) ++ (1!4), inf)
   )
 );
-
+*/
 Pdef(\bell_2,
   Pmono(\prayer_bell,
     \dur, Pwhite(8, 20, inf),
     \trig, Pwhite(0.05, 0.09),
     \sing_switch, Pwrand([0, 1], [5, 3].normalizeSum, inf),
-    \freq, Prand((240, 360 .. 2000), inf),
+    \freq, Prand((240, 360 .. 1000), inf),
     \amp, 0.5
   )
 );
 
+/*
 Pdef(\bell_3,
   Ppar([
     Pmono(\prayer_bell,
@@ -114,8 +116,8 @@ Pdef(\bell_3,
     )
   ])
 );
-
-Pdef(\bell_1).play;
+*/
+// Pdef(\bell_1).play;
 Pdef(\bell_2).play;
-Pdef(\bell_3).play;
+// Pdef(\bell_3).play;
 )

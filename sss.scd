@@ -158,11 +158,20 @@ s+(0.2*y)
 // fasa veci:
 {PMOsc.ar(300,575,2,mul:0.3).dup}.play;
 
+{
+			LinPan2.ar(
+				EnvGen.ar(Env.linen(3, 5, 2), doneAction: 2)
+				*
+				PMOsc.ar(2000.rand, 800.rand, Line.kr(0.0, 12.0.rand, 9), 0, 0.1),
+				1.0.rand2
+			)
+		}.play;
+
 Routine({
 	loop{
 		{
 			LinPan2.ar(
-				EnvGen.ar(Env.linen(2, 5, 2), doneAction: 2)
+				EnvGen.ar(Env.linen(3, 5, 2), doneAction: 2)
 				*
 				PMOsc.ar(2000.rand, 800.rand, Line.kr(0.0, 12.0.rand, 9), 0, 0.1),
 				1.0.rand2
